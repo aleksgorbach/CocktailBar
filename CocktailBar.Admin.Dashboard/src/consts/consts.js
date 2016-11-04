@@ -1,0 +1,1 @@
+export const ServerRoot = "http://localhost:5000/api/"
