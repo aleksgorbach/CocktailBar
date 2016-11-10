@@ -9,7 +9,7 @@
         private readonly List<Ingredient> _ingredients;
 
         public MemoryIngredientsRepository() {
-            _ingredients = new List<Ingredient> {new Ingredient()};
+            _ingredients = new List<Ingredient> {new Ingredient(){Title="Tea", Description="Greenfield"}};
         }
 
         public IQueryable<Ingredient> Get(int page = 0, int pageSize = 10) {
