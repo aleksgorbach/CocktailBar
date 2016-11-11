@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Paginator from "./../components/Paginator";
-const Store = require('./../stores/IngredientsStore');
 
 export default class IngredientsPage extends Component {
     constructor() {
@@ -9,21 +8,6 @@ export default class IngredientsPage extends Component {
         this.state = {
             ingredients: []
         }
-    }
-
-    componentWillMount() {
-        Store.addChangeListener(this.updateState);
-        this.updateState();
-    }
- 
-    componentWillUnmount() {
-        Store.removeChangeListener(this.updateState);
-    }
-
-    updateState(){
-        this.setState({
-            ingredients: Store.getIngredients()
-        })
     }
 
     render() {
@@ -50,7 +34,7 @@ export default class IngredientsPage extends Component {
                         {rows}
                     </tbody>
                 </table>
-                <Paginator />
+                <Paginator pagination={this.state.pagination} />
             </div>
         </div>
         )

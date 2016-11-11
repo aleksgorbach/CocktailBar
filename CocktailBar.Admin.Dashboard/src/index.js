@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, Router, hashHistory} from 'react-router';
 
-import App from './layouts/main/App';
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux';
 
-import Ingredients from './pages/Ingredients';
-import Recipes from './pages/Recipes';
+import AppRouter from './routes/Router';
+import Reducer from './reducers';
+
+const store = createStore(Reducer);
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Route path="ingredients" component={Ingredients}/>
-      <Route path="recipes" component={Recipes}/>
-    </Route>
-  </Router>,
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>,
   document.getElementById('root')
 );

@@ -3918,7 +3918,11 @@ body {
 fieldset {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
-  border-radius: 8px; }
+  border-radius: 8px;
+  padding: 10px; }
+  fieldset input, fieldset textarea, fieldset button {
+    width: 100%;
+    margin: 2px; }
 
 .header {
   height: 100px;
@@ -3942,6 +3946,7 @@ fieldset {
   padding: 30px; }
 
 .pagination {
-  color: #342; }
+  color: #342;
+  margin: 20px auto; }
   .pagination .btn-numbered-page.active a {
     color: #ff4563; }

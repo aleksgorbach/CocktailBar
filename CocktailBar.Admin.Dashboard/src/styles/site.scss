@@ -41,6 +41,11 @@ fieldset {
     -moz-border-radius:8px;
     -webkit-border-radius:8px;	
     border-radius:8px;
+    padding: 10px;
+    input, textarea, button {
+        width: 100%;
+        margin: 2px;
+    }
 }
 
 .header {
@@ -70,6 +75,7 @@ fieldset {
 
 .pagination {
     color: $paginator-text-color;
+    margin: 20px auto;
     .btn-numbered-page.active a {
         color: $paginator-active-page-color;
     }
