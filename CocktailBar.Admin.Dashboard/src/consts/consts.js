@@ -4,3 +4,7 @@ var keyMirror = require('keymirror');
 export const IngredientsConsts = keyMirror({
     pageChanged: null
 })
+
+export const NavigationConsts = keyMirror({
+    navLinkClick: null
+})

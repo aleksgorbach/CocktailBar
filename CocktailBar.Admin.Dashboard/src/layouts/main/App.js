@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Navigation from './../../components/Navigation';
+import Sidebar from './../../containers/Sidebar';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
         </div>
         <div className="columns fullheight">
           <div className="column is-2">
-            <Navigation />
+            <Sidebar />
           </div>
           <div className="main column is-10">
             {this.props.children}

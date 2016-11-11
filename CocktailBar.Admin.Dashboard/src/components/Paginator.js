@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Pager from 'react-pager';
 
-const Paginator = ({currentPage, totalPages, visiblePages, onPageChanged}) => {
-    <Pager total={totalPages} current={currentPage} visiblePages={visiblePages} onPageChanged={onPageChanged} />
+class Paginator extends Component {
+    render() {
+        return (
+            <Pager total={this.props.total} current={this.props.current} visiblePages={this.props.visiblePages} onPageChanged={this.props.onPageChanged} />
+        )
+    }
 }
 
 export default Paginator;
