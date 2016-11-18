@@ -3907,11 +3907,16 @@ body {
 .sidenav {
   background-color: #DB9E36;
   padding: 20px; }
-  .sidenav a {
-    color: #105B63;
+  .sidenav .nav-item-inactive {
     margin: 15px;
     font-size: 18px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #105B63; }
+  .sidenav .nav-item-active {
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #661a82; }
   .sidenav li {
     line-height: 2em; }
 

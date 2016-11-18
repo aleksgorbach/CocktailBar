@@ -23,14 +23,22 @@ body {
     background-color: $background-color;
 }
 
+@mixin nav-item {
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .sidenav {
     background-color: $sidebar-background-color;
     padding: 20px;
-    a {
+    .nav-item-inactive {
+        @include nav-item;
         color: $sidebar-menu-color;
-        margin: 15px;
-        font-size: 18px;
-        font-weight: bold;
+    }
+    .nav-item-active {
+        @include nav-item;
+        color: $sidebar-menu-color-active;
     }
     li {
         line-height: 2em;

@@ -13,8 +13,8 @@ class AppRouter extends Component {
         return (
             <Router history={hashHistory}>
                 <Route path="/" component={App}>
-                <Route path="ingredients" component={Ingredients}/>
-                <Route path="recipes" component={Recipes}/>
+                    <Route path="ingredients" component={Ingredients}/>
+                    <Route path="recipes" component={Recipes}/>
                 </Route>
             </Router>
         )

@@ -27074,8 +27074,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -27084,94 +27082,64 @@ var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/*export default class Navigation extends Component {
-    render() {
-        return (
-            <nav className="sidenav">
-                <ul>
-                    <li><Link to="#">Home</Link></li>
-                    <li><Link to="ingredients">Ingredients</Link></li>
-                    <li><Link to="#">Recipes</Link></li>
-                </ul>
-            </nav>
-        )
+var NavLink = function NavLink(props) {
+    if (props.isActive) {
+        return _react2.default.createElement(
+            'span',
+            { className: 'nav-item-active' },
+            props.children
+        );
+    } else {
+        return _react2.default.createElement(
+            _reactRouter.Link,
+            {
+                className: 'nav-item-inactive',
+                to: props.href,
+                onClick: function onClick() {
+                    props.onClick(props.href);
+                } },
+            props.children
+        );
     }
-}*/
+};
 
-var NavLink = function (_Component) {
-    _inherits(NavLink, _Component);
-
-    function NavLink() {
-        _classCallCheck(this, NavLink);
-
-        return _possibleConstructorReturn(this, (NavLink.__proto__ || Object.getPrototypeOf(NavLink)).apply(this, arguments));
-    }
-
-    _createClass(NavLink, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            if (this.props.isActive) {
-                return _react2.default.createElement(
-                    'span',
-                    null,
-                    this.props.content
-                );
-            } else {
-                return _react2.default.createElement(
-                    'a',
-                    {
-                        href: this.props.href,
-                        onClick: function onClick(e) {
-                            e.preventDefault();
-                            _this2.props.onClick(href);
-                        } },
-                    this.props.content
-                );
-            }
-        }
-    }]);
-
-    return NavLink;
-}(_react.Component);
-
-var Navigation = function (_Component2) {
-    _inherits(Navigation, _Component2);
-
-    function Navigation() {
-        _classCallCheck(this, Navigation);
-
-        return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
-    }
-
-    _createClass(Navigation, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'nav',
-                { className: 'sidenav' },
+var Navigation = function Navigation(props) {
+    return _react2.default.createElement(
+        'nav',
+        { className: 'sidenav' },
+        _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+                'li',
+                null,
                 _react2.default.createElement(
-                    'ul',
-                    null,
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(NavLink, { isActive: 'true', href: '#', content: 'Home', onClick: this.props.onClick })
-                    )
+                    NavLink,
+                    { isActive: props.activePage === "#", href: '#', onClick: props.onClick },
+                    'Home'
                 )
-            );
-        }
-    }]);
-
-    return Navigation;
-}(_react.Component);
+            ),
+            _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                    NavLink,
+                    { isActive: props.activePage === "Ingredients", href: 'Ingredients', onClick: props.onClick },
+                    'Ingredients'
+                )
+            ),
+            _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                    NavLink,
+                    { isActive: props.activePage === "Recipes", href: 'Recipes', onClick: props.onClick },
+                    'Recipes'
+                )
+            )
+        )
+    );
+};
 
 exports.default = Navigation;
 
@@ -27552,13 +27520,15 @@ var _Navigation2 = _interopRequireDefault(_Navigation);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-    return {};
+    return {
+        activePage: state.navigation.activePage
+    };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         onClick: function onClick(href) {
-            dispatch(navLinkClick(href));
+            dispatch((0, _NavigationActions.navLinkClick)(href));
         }
     };
 };
@@ -27600,7 +27570,7 @@ _reactDom2.default.render(_react2.default.createElement(
   _react2.default.createElement(_Router2.default, null)
 ), document.getElementById('root'));
 
-},{"./reducers":267,"./routes/Router":269,"react":243,"react-dom":59,"react-redux":63,"redux":249}],266:[function(require,module,exports){
+},{"./reducers":267,"./routes/Router":270,"react":243,"react-dom":59,"react-redux":63,"redux":249}],266:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27682,6 +27652,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = require("redux");
 
+var _navigation = require("./navigation");
+
+var _navigation2 = _interopRequireDefault(_navigation);
+
 var _ingredients = require("./ingredients");
 
 var _ingredients2 = _interopRequireDefault(_ingredients);
@@ -27689,10 +27663,11 @@ var _ingredients2 = _interopRequireDefault(_ingredients);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
+    navigation: _navigation2.default,
     ingredients: _ingredients2.default
 });
 
-},{"./ingredients":268,"redux":249}],268:[function(require,module,exports){
+},{"./ingredients":268,"./navigation":269,"redux":249}],268:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27700,16 +27675,45 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var action = arguments[1];
 
-    return state;
-};
-
-var initialState = {
-    ingredients: []
+    switch (action.type) {
+        default:
+            return state;
+    }
 };
 
 },{}],269:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case _Consts.NavigationConsts.navLinkClick:
+            return _extends({}, state, {
+                activePage: action.payload
+            });
+        default:
+            return state;
+    }
+};
+
+var _Consts = require("./../consts/Consts");
+
+var initialState = {
+    activePage: "#"
+};
+
+},{"./../consts/Consts":261}],270:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

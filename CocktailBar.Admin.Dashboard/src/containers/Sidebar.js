@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { NavLinkClick } from "./../actions/NavigationActions";
+import { navLinkClick } from "./../actions/NavigationActions";
 
 import Navigation from "./../components/Navigation";
 
 const mapStateToProps = (state) => {
     return {
+        activePage: state.navigation.activePage
     }
 }
 

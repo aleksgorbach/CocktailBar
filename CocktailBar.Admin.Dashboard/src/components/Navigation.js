@@ -1,52 +1,48 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router'
 
-/*export default class Navigation extends Component {
-    render() {
+const NavLink = (props) => {
+    if(props.isActive){
         return (
-            <nav className="sidenav">
-                <ul>
-                    <li><Link to="#">Home</Link></li>
-                    <li><Link to="ingredients">Ingredients</Link></li>
-                    <li><Link to="#">Recipes</Link></li>
-                </ul>
-            </nav>
+            <span className="nav-item-active">
+                {props.children}
+            </span>
         )
-    }
-}*/
-
-class NavLink extends Component {
-    render() {
-        if(this.props.isActive){
-            return (
-                <span>
-                    {this.props.content}
-                </span>
-            )
-        } else {
-            return (
-                <a 
-                    href={this.props.href} 
-                    onClick = {e => {
-                        e.preventDefault();
-                        this.props.onClick(href);
-                    }}>
-                        {this.props.content}
-                </a>)
-        }
-    }
-} 
-
-class Navigation extends Component {
-    render() {
+    } else {
         return (
-            <nav className="sidenav">
-                <ul>
-                    <li><NavLink isActive="true" href="#" content="Home" onClick={this.props.onClick}/></li>
-                </ul>
-            </nav>
-        )
+            <Link 
+                className="nav-item-inactive"
+                to={props.href} 
+                onClick = {() => {
+                    props.onClick(props.href);
+                }}>
+                    {props.children}
+            </Link>)
     }
+}
+
+const Navigation = (props) => {
+    return (
+        <nav className="sidenav">
+            <ul>
+                <li>
+                    <NavLink isActive={props.activePage === "#"} href="#" onClick={props.onClick}>
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink isActive={props.activePage === "Ingredients"} href="Ingredients" onClick={props.onClick}>
+                        Ingredients
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink isActive={props.activePage === "Recipes"} href="Recipes" onClick={props.onClick}>
+                        Recipes
+                    </NavLink>
+                </li>
+            </ul>
+        </nav>
+    )
 }
 
 export default Navigation;
