@@ -1,4 +1,4 @@
-import {NavigationConsts} from './../consts/Consts';
+import {NavigationConsts} from './../actions/types/ActionTypes';
 
 export const navLinkClick = (href) => {
     return {

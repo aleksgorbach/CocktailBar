@@ -8,17 +8,15 @@ import Recipes from './../containers/Recipes';
 
 import {connect} from 'react-redux';
 
-class AppRouter extends Component {
-    render() {
-        return (
-            <Router history={hashHistory}>
-                <Route path="/" component={App}>
-                    <Route path="ingredients" component={Ingredients}/>
-                    <Route path="recipes" component={Recipes}/>
-                </Route>
-            </Router>
-        )
-    }
+const AppRouter = () => {
+    return (
+        <Router history={hashHistory}>
+            <Route path="/" component={App}>
+                <Route path="ingredients" component={Ingredients}/>
+                <Route path="recipes" component={Recipes}/>
+            </Route>
+        </Router>
+    )
 }
 
 function mapStateToProps(state){

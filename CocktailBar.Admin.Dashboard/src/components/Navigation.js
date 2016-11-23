@@ -21,6 +21,13 @@ const NavLink = (props) => {
     }
 }
 
+NavLink.propTypes = {
+    isActive: React.PropTypes.bool,
+    children: React.PropTypes.string,
+    href: React.PropTypes.string,
+    onClick: React.PropTypes.func
+}
+
 const Navigation = (props) => {
     return (
         <nav className="sidenav">
@@ -43,6 +50,11 @@ const Navigation = (props) => {
             </ul>
         </nav>
     )
+}
+
+Navigation.propTypes = {
+    activePage: React.PropTypes.string,
+    onClick: React.PropTypes.func
 }
 
 export default Navigation;
