@@ -14,7 +14,7 @@
             var repo = new Mock<IIngredientsRepository>();
             repo.Setup(x => x.Get(0, 10)).Returns(new List<Ingredient>().AsQueryable());
             var controller = new IngredientsController(repo.Object);
-            var result = controller.Get();
+            var result = controller.Get(0, 10);
             Assert.IsType<NoContentResult>(result);
         }
 
@@ -23,7 +23,7 @@
             var repo = new Mock<IIngredientsRepository>();
             repo.Setup(x => x.Get(0, 10)).Returns(new Ingredient[3].AsQueryable());
             var controller = new IngredientsController(repo.Object);
-            var result = controller.Get();
+            var result = controller.Get(0, 3);
             Assert.IsType<ObjectResult>(result);
         }
     }

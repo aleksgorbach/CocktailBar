@@ -38,7 +38,7 @@ function bundleJs(bundler) {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./public/js/'));
+        .pipe(gulp.dest('./wwwroot/js/'));
 }
 
 
@@ -59,7 +59,7 @@ gulp.task('sassWithWatch', ['sass'], function() {
 
 // -------------------------------------
 gulp.task('webserver', function() {
-    gulp.src('public')
+    gulp.src('wwwroot')
         .pipe(webserver({
             livereload: true,
             open: true

@@ -3,9 +3,9 @@ import { Field, reduxForm, filterProps, initialize } from 'redux-form';
 
 const renderField = (field) => (
     <div className="input-row">
-      <input {...field.input} type="text"/>
+        <input {...field.input} type="text"/>
     </div>
-)
+);
 
 class AddItemForm extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class AddItemForm extends Component {
                 </div>
                 <button onClick={ handleSubmit(onSubmit) }>Click me</button>
             </form>
-        )
+        );
     }
 }
 

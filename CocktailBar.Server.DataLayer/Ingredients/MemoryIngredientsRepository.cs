@@ -9,15 +9,20 @@
         private readonly List<Ingredient> _ingredients;
 
         public MemoryIngredientsRepository() {
-            _ingredients = new List<Ingredient> {new Ingredient(){Title="Tea", Description="Greenfield"}};
+            _ingredients = new List<Ingredient> {
+                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Tea", Description = "Greenfield"},
+                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Pepsi", Description = "Cola"},
+                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Coca", Description = "Cola"},
+                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Coffee", Description = "Jacobs"}
+            };
         }
 
         public IQueryable<Ingredient> Get(int page = 0, int pageSize = 10) {
-            return _ingredients.AsQueryable();
+            return _ingredients.Skip(page*pageSize).Take(pageSize).AsQueryable();
         }
 
         public Ingredient Get(string id) {
-            throw new NotImplementedException();
+            return _ingredients.FirstOrDefault(x => x.Id == id);
         }
     }
 }

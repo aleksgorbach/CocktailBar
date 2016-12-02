@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CocktailBar.Admin.Dashboard": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DEVELOPEMENT"
+      }
+    }
+  }
+}

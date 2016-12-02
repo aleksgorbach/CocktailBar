@@ -2,22 +2,22 @@ import React, {Component} from 'react';
 import {Link} from 'react-router'
 
 const NavLink = (props) => {
-    if(props.isActive){
+    if(props.isActive) {
         return (
             <span className="nav-item-active">
                 {props.children}
             </span>
-        )
+        );
     } else {
         return (
-            <Link 
-                className="nav-item-inactive"
-                to={props.href} 
-                onClick = {() => {
+            <Link
+    className="nav-item-inactive"
+    to={props.href}
+    onClick={() => {
                     props.onClick(props.href);
                 }}>
-                    {props.children}
-            </Link>)
+                {props.children}
+            </Link>);
     }
 }
 

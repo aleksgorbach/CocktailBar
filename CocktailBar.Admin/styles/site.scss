@@ -1,0 +1,90 @@
+@import "bulma";
+@import "variables.scss";
+
+@mixin full-height {
+    height: 100%;
+}
+
+html,
+body,
+.fullheight {
+    @include full-height;
+}
+
+nav,
+.sidenav {
+    @include full-height;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: $background-color;
+}
+
+@mixin nav-item {
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidenav {
+    background-color: $sidebar-background-color;
+    padding: 20px;
+    .nav-item-inactive {
+        @include nav-item;
+        color: $sidebar-menu-color;
+    }
+    .nav-item-active {
+        @include nav-item;
+        color: $sidebar-menu-color-active;
+    }
+    li {
+        line-height: 2em;
+    }
+}
+
+fieldset {
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+    padding: 10px;
+    input, textarea, button {
+        width: 100%;
+        margin: 2px;
+    }
+}
+
+.header {
+    height: $header-height;
+    background-color: $header-background-color;
+    color: $header-text-color;
+    text-align: center;
+    overflow-y: hidden;
+    h1 {
+        font-weight: bold;
+        line-height: $header-height;
+        font-size: 48pt;
+    }
+    img.logo {
+        height: 48px;
+        width: 48px;
+        float: left;
+        display: block;
+        margin-left: 20px;
+        margin-top: 20px; 
+    }
+}
+
+.main {
+    padding: 30px;
+}
+
+.pagination {
+    color: $paginator-text-color;
+    margin: 20px auto;
+    .btn-numbered-page.active a {
+        color: $paginator-active-page-color;
+    }
+}

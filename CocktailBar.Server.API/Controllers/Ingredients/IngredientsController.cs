@@ -23,8 +23,8 @@
         /// <response code="200">Succeded</response>
         /// <response code="204">No ingredients found</response>
         [HttpGet]
-        public IActionResult Get(int page = 0, int pageSize = 10) {
-            var ingredients = _repo.Get();
+        public IActionResult Get(int page, int pageSize) {
+            var ingredients = _repo.Get(page, pageSize);
             if (ingredients.Any()) {
                 return new ObjectResult(ingredients);
             }
