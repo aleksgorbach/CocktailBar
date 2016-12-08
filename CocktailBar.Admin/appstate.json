@@ -1,0 +1,21 @@
+{
+    "navigation": {
+        "activePage": "Home"
+    },
+    "ingredients": {
+        "data": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalPages": 20,
+            "visiblePages": 3
+        }
+    },
+    "recipes": {
+        "data": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalPages": 20,
+            "visiblePages": 3
+        }
+    }
+}

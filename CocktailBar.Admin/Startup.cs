@@ -1,6 +1,9 @@
 ﻿namespace CocktailBar.Admin {
+    using System;
+    using System.Linq;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
@@ -18,7 +21,6 @@
         private IConfigurationRoot Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
@@ -33,16 +35,27 @@
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            var clientRoutes = new[] {"/ingredients", "/recipes"};
+
+            app.Use(async (context, next) =>
+            {
+                // If the request matches one of those paths, change it.
+                // This needs to happen before UseDefaultFiles.
+                if (context.Request.Path.HasValue &&
+                    null !=
+                    clientRoutes.FirstOrDefault(
+                        route => 
+                        context.Request.Path.Value.StartsWith(route, StringComparison.OrdinalIgnoreCase))) {
+                    context.Request.Path = new PathString("/");
+                }
+
+                await next();
+            });
+
             app.Map("/api",
                 builder => { builder.RunProxy(new ProxyOptions {Host = "localhost", Port = "8000", Scheme = "http"}); });
-
+            app.UseDefaultFiles();
             app.UseStaticFiles();
-
-            app.UseMvc(routes => {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Ingredients}/{action=Index}/{id?}");
-            });
         }
     }
 }

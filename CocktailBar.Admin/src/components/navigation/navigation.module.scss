@@ -1,0 +1,27 @@
+$background-color: #2aa198;
+
+$color-inactive: #0F353C;
+$color-active: #661a82;
+
+$border-color-inactive: #718C91;
+$border-color-active: #e0a62e;
+
+.nav {
+    background-color: $background-color;
+    font-weight: bold;
+    .nav-item.is-tab
+    {
+        &.active {
+            color: $color-active;
+            border-bottom: 3px solid $border-color-active;
+        }
+        &.inactive {
+            color: $color-inactive;
+            &:hover {
+                border-bottom: $border-color-inactive 3px solid;
+            }
+        }
+    }
+}
+
+
