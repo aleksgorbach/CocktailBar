@@ -1,9 +1,9 @@
 $background-color: #2aa198;
 
 $color-inactive: #0F353C;
-$color-active: #661a82;
+$color-active: #fff;
 
-$border-color-inactive: #718C91;
+$border-color-inactive: #5eb5c5;
 $border-color-active: #e0a62e;
 
 .nav {
@@ -13,12 +13,12 @@ $border-color-active: #e0a62e;
     {
         &.active {
             color: $color-active;
-            border-bottom: 3px solid $border-color-active;
+            border-bottom: 5px solid $border-color-active;
         }
         &.inactive {
             color: $color-inactive;
             &:hover {
-                border-bottom: $border-color-inactive 3px solid;
+                border-bottom: $border-color-inactive 5px solid;
             }
         }
     }
