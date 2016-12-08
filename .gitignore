@@ -40,6 +40,9 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+**/wwwroot/js/
+**/wwwroot/css/
+
 # DNX
 project.lock.json
 artifacts/
