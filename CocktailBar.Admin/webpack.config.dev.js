@@ -4,7 +4,7 @@ const extract = require('extract-text-webpack-plugin');
 module.exports = {
     entry: "./src/index",
     output: {
-        path: __dirname + "/wwwroot/",
+        path: __dirname + "/dist/",
         filename: "js/app.js"
     },
     devtool: "source-map",

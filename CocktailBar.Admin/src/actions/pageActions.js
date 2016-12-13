@@ -1,4 +1,4 @@
-import { getList } from "./../api/ingredients"
+import { getList} from "./../api/ingredients"
 
 const onPageChanged = (dispatch, pageType, pageNumber, data) => {
     dispatch({

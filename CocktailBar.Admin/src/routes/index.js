@@ -3,12 +3,14 @@ import React from "react";
 
 import AppContainer from "./../containers/AppContainer";
 import Ingredients from "./../containers/IngredientsContainer";
+import IngredientsEdit from "./../containers/IngredientsContainer/edit";
 import Recipes from "./../containers/RecipesContainer";
 
-const createRoutes = () => (
+const createRoutes = (store) => (
     <Route path="/" component={AppContainer}>
         <IndexRoute component={Ingredients}></IndexRoute>
         <Route path="ingredients" component={Ingredients}></Route>
+        <Route path="ingredients/:id" component={IngredientsEdit}></Route>
         <Route path="recipes" component={Recipes}></Route>
     </Route>
 );

@@ -1,5 +1,6 @@
 const initialState = {
     data: [],
+    active: {},
     pagination: {
         currentPage: 0,
         totalPages: 20,
@@ -26,6 +27,24 @@ const reducer = (state = initialState, action) => {
                     ...state.pagination,
                     currentPage: action.page
                 }
+            }
+        }
+        case 'INGR_EDIT_REQUESTED': {
+            return {
+                ...state,
+                active: action.item
+            }
+        }
+        case 'INGR_EDITED': {
+            const prevItem = state.data.find(x => x.id == action.item.id);
+            const data = [...state.data];
+            const index = data.indexOf(prevItem);
+            if (index !== -1) {
+                data[index] = action.item;
+            }
+            return {
+                ...state,
+                data: data
             }
         }
         default: {

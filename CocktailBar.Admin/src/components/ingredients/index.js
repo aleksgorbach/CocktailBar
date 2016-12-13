@@ -1,29 +1,27 @@
 import React from 'react';
+import { Link } from "react-router";
 
 import "bulma";
 import "./Ingredients.module.scss";
 
 const IngredientRow = props => {
+    let { ingredient, onEdit } = props;
     return (
         <tr>
-            <td>{props.ingredient.title}</td>
-            <td>{props.ingredient.description}</td>
+            <td>{ingredient.title}</td>
+            <td>{ingredient.description}</td>
             <td>
-                <a className="action-link" onClick={props.onEdit}>Edit</a>
-                <a className="action-link" onClick={props.onDelete}>Delete</a>
+                <Link className="action-link" to={`/ingredients/${ingredient.id}`} onClick={() => onEdit(ingredient)}>Edit</Link>
+                <a className="action-link" onClick="">Delete</a>
             </td>
         </tr>
     );
 };
-IngredientRow.propTypes = {
-    ingredient: React.PropTypes.object.isRequired,
-    onEdit: React.PropTypes.func,
-    onDelete: React.PropTypes.func
-};
 
 const Ingredients = props => {
-    const ingredients = props.ingredients.map(ing => 
-        <IngredientRow ingredient={ing} key={ing.id} onEdit={() => props.onEdit(ing)} onDelete={() => props.onDelete(ing.id)} />
+    let { ingredients, onEdit } = props;
+    const ingredientsArr = ingredients.map(ing => 
+        <IngredientRow ingredient={ing} key={ing.id} onEdit={ onEdit } />
     )
     return (
         <div>
@@ -36,16 +34,12 @@ const Ingredients = props => {
                     </tr>
                 </thead>
                 <tbody>
-                    {ingredients}
+                    {ingredientsArr}
                 </tbody>
             </table>
             
         </div>
     );
 };
-Ingredients.propTypes = {
-    ingredients: React.PropTypes.array.isRequired,
-    onEdit: React.PropTypes.func,
-    onDelete: React.PropTypes.func
-};
+
 export default Ingredients;

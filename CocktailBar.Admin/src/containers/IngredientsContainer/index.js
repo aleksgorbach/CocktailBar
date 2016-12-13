@@ -6,18 +6,22 @@ import Ingredients from "./../../components/ingredients";
 import Pager from "./../../components/pagination";
 
 import * as PageActions from "./../../actions/pageActions";
+import * as IngrActions from "./../../actions/ingredientActions";
 
 class Container extends Component {
     componentDidMount(){
-        this.props.changePage(0);
+        let { pagination, changePage, ingredients } = this.props;
+        if(ingredients.length == 0) {
+            changePage(pagination.currentPage);
+        }
     }
 
     render() {
-        let { ingredients, pagination, changePage } = this.props;
+        let { ingredients, pagination, changePage, onEdit} = this.props;
         return (
             <div>
-                <Ingredients ingredients={ingredients} />
                 <Pager current={pagination.currentPage} total={pagination.totalPages} visiblePages={pagination.visiblePages} changePage={changePage}/>
+                <Ingredients ingredients={ingredients} onEdit={onEdit}/>
             </div>
         )
     }
@@ -29,7 +33,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    changePage: page => dispatch(PageActions.changePage("INGR", page))
+    changePage: page => dispatch(PageActions.changePage("INGR", page)),
+    onEdit: ingr => dispatch(IngrActions.editItemRequested(ingr))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);

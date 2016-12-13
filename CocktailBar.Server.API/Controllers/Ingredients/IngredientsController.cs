@@ -1,8 +1,10 @@
 ﻿namespace CocktailBar.Server.API.Controllers.Ingredients {
+    using System;
     using System.Linq;
     using DataLayer.Interfaces.Ingredients;
     using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
+    using Models.Ingredients;
 
     [Route("api/[controller]")]
     [EnableCors("AllowOrigin")]
@@ -39,7 +41,8 @@
 
         // POST api/ingredients
         [HttpPost]
-        public void Post([FromBody] string value) {
+        public void Post([FromBody] Ingredient item) {
+            Console.WriteLine(item);
         }
 
         // PUT api/ingredients/5

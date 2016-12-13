@@ -3888,70 +3888,22 @@ a.panel-block:hover {
       border-bottom: 1px solid #dbdbdb; }
       .footer a:not(.icon):hover, .footer a:visited:not(.icon):hover {
         border-bottom-color: #00d1b2; }
+.nav {
+  background-color: #2aa198;
+  font-weight: bold; }
+  .nav .nav-item.is-tab.active {
+    color: #fff;
+    border-bottom: 5px solid #e0a62e; }
+  .nav .nav-item.is-tab.inactive {
+    color: #0F353C; }
+    .nav .nav-item.is-tab.inactive:hover {
+      border-bottom: #5eb5c5 5px solid; }
+.table {
+  table-layout: fixed; }
 
-html,
-body,
-.fullheight {
-  height: 100%; }
+.action-link {
+  margin: 5px; }
+.active {
+  font-weight: bold; }
 
-nav,
-.sidenav {
-  height: 100%; }
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: #FFFAD5; }
-
-.sidenav {
-  background-color: #DB9E36;
-  padding: 20px; }
-  .sidenav .nav-item-inactive {
-    margin: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #105B63; }
-  .sidenav .nav-item-active {
-    margin: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #661a82; }
-  .sidenav li {
-    line-height: 2em; }
-
-fieldset {
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  padding: 10px; }
-  fieldset input, fieldset textarea, fieldset button {
-    width: 100%;
-    margin: 2px; }
-
-.header {
-  height: 100px;
-  background-color: #105B63;
-  color: #FFFAD5;
-  text-align: center;
-  overflow-y: hidden; }
-  .header h1 {
-    font-weight: bold;
-    line-height: 100px;
-    font-size: 48pt; }
-  .header img.logo {
-    height: 48px;
-    width: 48px;
-    float: left;
-    display: block;
-    margin-left: 20px;
-    margin-top: 20px; }
-
-.main {
-  padding: 30px; }
-
-.pagination {
-  color: #342;
-  margin: 20px auto; }
-  .pagination .btn-numbered-page.active a {
-    color: #ff4563; }
+/*# sourceMappingURL=main.css.map*/
