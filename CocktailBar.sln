@@ -17,10 +17,6 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CocktailBar.Server.API.Test
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CocktailBar.Server.DataLayer.Interfaces", "CocktailBar.Server.DataLayer.Interfaces\CocktailBar.Server.DataLayer.Interfaces.xproj", "{A78293B0-C8E0-480C-9959-86D73137746F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CocktailBar.Admin.Dashboard", "CocktailBar.Admin.Dashboard\CocktailBar.Admin.Dashboard.xproj", "{93D91780-BC86-4BA9-8ABF-61FB069A8CEB}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CocktailBar.Admin", "CocktailBar.Admin\CocktailBar.Admin.xproj", "{CD79C4CD-F417-48A1-9712-D3F4BC368DA1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,14 +43,6 @@ Global
 		{A78293B0-C8E0-480C-9959-86D73137746F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A78293B0-C8E0-480C-9959-86D73137746F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A78293B0-C8E0-480C-9959-86D73137746F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93D91780-BC86-4BA9-8ABF-61FB069A8CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93D91780-BC86-4BA9-8ABF-61FB069A8CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93D91780-BC86-4BA9-8ABF-61FB069A8CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93D91780-BC86-4BA9-8ABF-61FB069A8CEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD79C4CD-F417-48A1-9712-D3F4BC368DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD79C4CD-F417-48A1-9712-D3F4BC368DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD79C4CD-F417-48A1-9712-D3F4BC368DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD79C4CD-F417-48A1-9712-D3F4BC368DA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,7 +53,5 @@ Global
 		{1F5700C5-A98B-4B60-8BD6-5A4C901FB1FF} = {769AF497-E4AC-422A-812E-843A425AE938}
 		{72A3D906-9BF6-4516-B3CC-F544DD73BEB8} = {03A190E6-3590-44B5-8046-7DAA0C6BB543}
 		{A78293B0-C8E0-480C-9959-86D73137746F} = {769AF497-E4AC-422A-812E-843A425AE938}
-		{93D91780-BC86-4BA9-8ABF-61FB069A8CEB} = {769AF497-E4AC-422A-812E-843A425AE938}
-		{CD79C4CD-F417-48A1-9712-D3F4BC368DA1} = {769AF497-E4AC-422A-812E-843A425AE938}
 	EndGlobalSection
 EndGlobal

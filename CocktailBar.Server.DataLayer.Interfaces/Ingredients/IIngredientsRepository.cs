@@ -3,7 +3,8 @@
     using Models.Ingredients;
 
     public interface IIngredientsRepository {
-        IQueryable<Ingredient> Get(int page = 0, int pageSize = 10);
+        IQueryable<Ingredient> GetAll();
         Ingredient Get(string id);
+        void Add(Ingredient item);
     }
 }

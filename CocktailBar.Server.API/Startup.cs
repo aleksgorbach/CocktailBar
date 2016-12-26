@@ -2,6 +2,8 @@ namespace CocktailBar.Server.API {
     using System.Net;
     using DataLayer.Ingredients;
     using DataLayer.Interfaces.Ingredients;
+    using DataLayer.Recipes;
+    using Interfaces.Recipes;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics;
     using Microsoft.AspNetCore.Hosting;
@@ -10,6 +12,8 @@ namespace CocktailBar.Server.API {
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.PlatformAbstractions;
+    using Services.Ingredients;
+    using Services.Recipes;
     using Swashbuckle.Swagger.Model;
 
     public class Startup {
@@ -50,6 +54,13 @@ namespace CocktailBar.Server.API {
                 .AddSingleton
                 <IIngredientsRepository,
                     MemoryIngredientsRepository>();
+            services
+                .AddSingleton
+                <IRecipesRepository,
+                    MemoryRecipesRepository>();
+
+            services.AddScoped<IIngredientService, IngredientService>();
+            services.AddScoped<IRecipesService, RecipesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

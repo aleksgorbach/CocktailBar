@@ -1,5 +1,4 @@
 ﻿namespace CocktailBar.Server.DataLayer.Ingredients {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Interfaces.Ingredients;
@@ -10,19 +9,23 @@
 
         public MemoryIngredientsRepository() {
             _ingredients = new List<Ingredient> {
-                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Tea", Description = "Greenfield"},
-                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Pepsi", Description = "Cola"},
-                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Coca", Description = "Cola"},
-                new Ingredient {Id = Guid.NewGuid().ToString(), Title = "Coffee", Description = "Jacobs"}
+                new Ingredient {Id = "1", Title = "Rum", Description = "Alcohol"},
+                new Ingredient {Id = "2", Title = "Cola", Description = "Cola"},
+                new Ingredient {Id = "3", Title = "Lime", Description = "Sour"},
+                new Ingredient {Id = "4", Title = "Mint", Description = "Freshing!"}
             };
         }
 
-        public IQueryable<Ingredient> Get(int page = 0, int pageSize = 10) {
-            return _ingredients.Skip(page*pageSize).Take(pageSize).AsQueryable();
+        public IQueryable<Ingredient> GetAll() {
+            return _ingredients.AsQueryable();
         }
 
         public Ingredient Get(string id) {
             return _ingredients.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Add(Ingredient item) {
+            _ingredients.Add(item);
         }
     }
 }

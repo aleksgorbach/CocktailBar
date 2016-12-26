@@ -1,8 +1,8 @@
 ﻿namespace CocktailBar.Server.Models.Recipes {
     using System.Collections.Generic;
-    using Ingredients;
 
     public class Recipe {
-        public List<Ingredient> Ingredients { get; set; }
+        public List<string> Ingredients { get; set; }
+        public string Title { get; set; }
     }
 }
